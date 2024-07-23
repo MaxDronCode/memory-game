@@ -24,6 +24,6 @@
   },
   "cucumberautocomplete.syncfeatures": "tests/**/*.feature",
   "cucumberautocomplete.steps": [
-    "src/tests/**/*.js"
+    "tests/**/*.js"
   ],
 }

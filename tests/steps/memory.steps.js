@@ -10,10 +10,11 @@ export function openTheGame () {
 //   return title.innerHTML
 // }
 
-export function getGridSize () {
+export function checkGridSize (numRows, numColumns) {
   const grid = screen.getByTestId('grid', { exact: true })
-  return {
-    rows: grid.children.length,
-    columns: grid.children[0].children.length
-  }
+  // return {
+  //   rows: grid.children.length,
+  //   columns: grid.children[0].children.length
+  // }
+  return (grid.children.length === numRows && grid.children[0].children.length === numColumns)
 }
