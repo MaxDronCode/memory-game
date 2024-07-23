@@ -25,11 +25,11 @@ defineFeature(feature, (test) => {
 
   test('Starting the Game - All the cards should be enabled', ({ given, then, pending }) => {
     given('the player opens the game', () => {
-
+      steps.openTheGame()
     })
 
     then('all the cards should be enabled', () => {
-      pending()
+      expect(steps.allCardsEnabled()).toBe(true)
     })
   })
 
