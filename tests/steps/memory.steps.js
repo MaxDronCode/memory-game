@@ -24,3 +24,13 @@ export function allCardsCovered () {
   const allCards = [...cards1row, ...cards2row, ...cards3row]
   return allCards.every(card => card.classList.contains('covered'))
 }
+
+export function allCardsEnabled () {
+  const grid = screen.getByTestId('grid')
+  const rows = grid.children
+  const cards1row = rows[0].children
+  const cards2row = rows[1].children
+  const cards3row = rows[2].children
+  const allCards = [...cards1row, ...cards2row, ...cards3row]
+  return allCards.every(card => !card.classList.contains('disabled'))
+}
