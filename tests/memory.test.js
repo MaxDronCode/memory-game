@@ -9,8 +9,8 @@ defineFeature(feature, (test) => {
       steps.openTheGame()
     })
 
-    then(/^the grid should have "(.*)" rows and "(.*)" columns$/, (arg0, arg1) => {
-      expect(steps.getGridSize()).toEqual({ rows: arg0, columns: arg1 })
+    then(/^the grid should have "(.*)" rows and "(.*)" columns$/, (numRows, numColumns) => {
+      expect(steps.getGridSize()).toEqual({ rows: numRows, columns: numColumns })
     })
   })
 })
