@@ -1,3 +1,4 @@
+'use client'
 import Card from '@/components/card'
 import '@/styles/grid.css'
 
