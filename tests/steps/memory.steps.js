@@ -11,7 +11,7 @@ export function openTheGame () {
 // }
 
 export function getGridSize () {
-  const grid = screen.getByTestId('grid')
+  const grid = screen.getByTestId('grid', { exact: true })
   return {
     rows: grid.children.length,
     columns: grid.children[0].children.length
