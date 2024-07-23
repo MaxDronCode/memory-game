@@ -5,16 +5,12 @@ import Page from '../../src/app/page'
 export function openTheGame () {
   render(<Page />)
 }
-// export function getTitle () {
-//   const title = screen.getByTestId('app-title')
-//   return title.innerHTML
-// }
 
 export function checkGridSize (numRows, numColumns) {
-  const grid = screen.getByTestId('grid', { exact: true })
-  // return {
-  //   rows: grid.children.length,
-  //   columns: grid.children[0].children.length
-  // }
-  return (grid.children.length === numRows && grid.children[0].children.length === numColumns)
+  const grid = screen.getByTestId('grid')
+  const rows = grid.children
+  const cards1row = rows[0].children
+  const cards2row = rows[1].children
+  const cards3row = rows[2].children
+  return rows.length === Number(numRows) && cards1row.length === Number(numColumns) && cards2row.length === Number(numColumns) && cards3row.length === Number(numColumns)
 }
