@@ -95,29 +95,29 @@ defineFeature(feature, (test) => {
     })
   })
 
-  test('Uncovering a correct pair - They remain uncovered', ({ given, when, and, then, pending }) => {
+  test('Uncovering a correct pair - They remain uncovered', ({ given, when, and, then }) => {
     given('the player opens the game', () => {
-
+      steps.openTheGame()
     })
 
     given('the player loads the following mock data:', (docString) => {
-
+      steps.setMockData(docString)
     })
 
-    when(/^the player uncovers the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    when(/^the player uncovers the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
-    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
-    then(/^the card at \((\d+), (\d+)\) should be uncovered$/, (arg0, arg1) => {
-      pending()
+    then(/^the card at \((\d+), (\d+)\) should be uncovered$/, (rowPosition, colPosition) => {
+      expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(true)
     })
 
-    and(/^the card at \((\d+), (\d+)\) should be uncovered$/, (arg0, arg1) => {
-      pending()
+    and(/^the card at \((\d+), (\d+)\) should be uncovered$/, (rowPosition, colPosition) => {
+      expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(true)
     })
   })
 
