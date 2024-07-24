@@ -1,7 +1,7 @@
 import '@/styles/card.css'
 import { useState } from 'react'
 
-export default function Card ({ logo }) {
+export default function Card ({ value }) {
   const [isCovered, setIsCovered] = useState(true)
 
   return (
@@ -9,7 +9,7 @@ export default function Card ({ logo }) {
       'card' + (isCovered ? ' covered' : '')
     }
     >
-      <img src={logo} alt='Logo' />
+      <img src={value + '.svg'} alt='Logo' />
     </div>
   )
 }

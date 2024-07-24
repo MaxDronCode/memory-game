@@ -19,24 +19,16 @@ export default function Grid ({ numRows = 3, numCols = 4, mockData }) {
   }, [mockData])
   return (
     <div data-testid='grid' className='grid'>
-      <div className='row'>
-        <Card logo='LogoC.svg' />
-        <Card logo='LogoC.svg' />
-        <Card logo='LogoGolang.svg' />
-        <Card logo='LogoGolang.svg' />
-      </div>
-      <div className='row'>
-        <Card logo='LogoJava.svg' />
-        <Card logo='LogoJava.svg' />
-        <Card logo='LogoJs.svg' />
-        <Card logo='LogoJs.svg' />
-      </div>
-      <div className='row'>
-        <Card logo='LogoKotlin.svg' />
-        <Card logo='LogoKotlin.svg' />
-        <Card logo='LogoRust.svg' />
-        <Card logo='LogoRust.svg' />
-      </div>
+      {gridData.map((row, rowIndex) => (
+        <div className='row' key={rowIndex}>
+          {row.map((card, cardIndex) => (
+            <Card
+              key={cardIndex}
+              value={card.value}
+            />
+          ))}
+        </div>
+      ))}
     </div>
   )
 }
