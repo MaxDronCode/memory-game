@@ -60,13 +60,13 @@ export function setMockData (data) {
 export function uncoverCard (rowPosition, colPosition) {
   const grid = screen.getByTestId('grid')
   const rows = grid.children
-  const card = rows[rowPosition].children[colPosition]
+  const card = rows[rowPosition - 1].children[colPosition - 1]
   fireEvent.click(card)
 }
 
 export function isCardUncovered (rowPosition, colPosition) {
   const grid = screen.getByTestId('grid')
   const rows = grid.children
-  const card = rows[rowPosition].children[colPosition]
+  const card = rows[rowPosition - 1].children[colPosition - 1]
   return !card.classList.contains('covered')
 }
