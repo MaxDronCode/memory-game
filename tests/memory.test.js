@@ -123,27 +123,27 @@ defineFeature(feature, (test) => {
 
   test('Uncovering all pairs - The game should be over', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
-
+      steps.openTheGame()
     })
 
     given('the player loads the following mock data:', (docString) => {
-
+      steps.setMockData(docString)
     })
 
-    when(/^the player uncovers the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    when(/^the player uncovers the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
-    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
-    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
-    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
     then('the game should be over', () => {
