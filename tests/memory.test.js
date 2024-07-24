@@ -147,7 +147,7 @@ defineFeature(feature, (test) => {
     })
 
     then('the game should be over', () => {
-      pending()
+      expect(steps.isGameOver()).toBe(true)
     })
   })
 })
