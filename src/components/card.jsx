@@ -40,7 +40,7 @@ export default function Card ({ rowIndex, colIndex, value, onUncover, wrongPairU
   }
 
   return (
-    <div className={setClassName()} onClick={handleClick}>
+    <div className={setClassName()} onClick={handleClick} data-testid='card'>
       <img src={value + '.svg'} alt='Logo' />
     </div>
   )

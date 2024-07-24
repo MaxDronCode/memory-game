@@ -79,11 +79,6 @@ export function isCardDisabled (rowPosition, colPosition) {
 }
 
 export function isGameOver () {
-  const grid = screen.getByTestId('grid')
-  const rows = grid.children
-  const cards1row = rows[0].children
-  const cards2row = rows[1].children
-  const cards3row = rows[2].children
-  const allCards = [...cards1row, ...cards2row, ...cards3row]
+  const allCards = screen.getAllByTestId('card', { exact: false })
   return allCards.every(card => card.classList.contains('disabled'))
 }
