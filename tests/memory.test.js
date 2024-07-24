@@ -13,7 +13,7 @@ defineFeature(feature, (test) => {
       expect(steps.checkGridSize(numRows, numColumns)).toBe(true)
     })
   })
-  test('Starting the Game - All cards should be covered', ({ given, then, pending }) => {
+  test('Starting the Game - All cards should be covered', ({ given, then }) => {
     given('the player opens the game', () => {
       steps.openTheGame()
     })
@@ -23,7 +23,7 @@ defineFeature(feature, (test) => {
     })
   })
 
-  test('Starting the Game - All the cards should be enabled', ({ given, then, pending }) => {
+  test('Starting the Game - All the cards should be enabled', ({ given, then }) => {
     given('the player opens the game', () => {
       steps.openTheGame()
     })
@@ -33,7 +33,7 @@ defineFeature(feature, (test) => {
     })
   })
 
-  test('Uncovering a card with the mouse - Using mouse left click', ({ given, when, then, pending }) => {
+  test('Uncovering a card with the mouse - Using mouse left click', ({ given, when, then }) => {
     given('the player opens the game', () => {
       steps.openTheGame()
     })
@@ -51,7 +51,7 @@ defineFeature(feature, (test) => {
     })
   })
 
-  test('Uncovering a card - Disabling the card', ({ given, when, then, pending }) => {
+  test('Uncovering a card - Disabling the card', ({ given, when, then }) => {
     given('the player opens the game', () => {
       steps.openTheGame()
     })
@@ -71,27 +71,27 @@ defineFeature(feature, (test) => {
 
   test('Uncovering a wrong pair - They become covered again', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
-
+      steps.openTheGame()
     })
 
     given('the player loads the following mock data:', (docString) => {
-
+      steps.setMockData(docString)
     })
 
-    when(/^the player uncovers the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    when(/^the player uncovers the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
-    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    and(/^the player uncovers the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
-    then(/^the card at \((\d+), (\d+)\) should be covered$/, (arg0, arg1) => {
-      pending()
+    then(/^the card at \((\d+), (\d+)\) should be covered$/, (rowPosition, colPosition) => {
+      expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(false)
     })
 
-    and(/^the card at \((\d+), (\d+)\) should be covered$/, (arg0, arg1) => {
-      pending()
+    and(/^the card at \((\d+), (\d+)\) should be covered$/, (rowPosition, colPosition) => {
+      expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(false)
     })
   })
 
