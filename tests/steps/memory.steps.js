@@ -70,3 +70,10 @@ export function isCardUncovered (rowPosition, colPosition) {
   const card = rows[rowPosition - 1].children[colPosition - 1]
   return !card.classList.contains('covered')
 }
+
+export function isCardDisabled (rowPosition, colPosition) {
+  const grid = screen.getByTestId('grid')
+  const rows = grid.children
+  const card = rows[rowPosition - 1].children[colPosition - 1]
+  return card.classList.contains('disabled')
+}

@@ -65,7 +65,7 @@ defineFeature(feature, (test) => {
     })
 
     then(/^the card at \((\d+), (\d+)\) should be disabled$/, (rowPosition, colPosition) => {
-      expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(true)
+      expect(steps.isCardDisabled(rowPosition, colPosition)).toBe(true)
     })
   })
 
