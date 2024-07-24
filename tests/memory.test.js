@@ -35,19 +35,19 @@ defineFeature(feature, (test) => {
 
   test('Uncovering a card with the mouse - Using mouse left click', ({ given, when, then, pending }) => {
     given('the player opens the game', () => {
-
+      steps.openTheGame()
     })
 
     given('the player loads the following mock data:', (docString) => {
-
+      steps.setMockData(docString)
     })
 
-    when(/^the player clicks the card at \((\d+), (\d+)\)$/, (arg0, arg1) => {
-
+    when(/^the player clicks the card at \((\d+), (\d+)\)$/, (rowPosition, colPosition) => {
+      steps.uncoverCard(rowPosition, colPosition)
     })
 
-    then(/^the card at \((\d+), (\d+)\) should be uncovered$/, (arg0, arg1) => {
-      pending()
+    then(/^the card at \((\d+), (\d+)\) should be uncovered$/, (rowPosition, colPosition) => {
+      expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(true)
     })
   })
 
