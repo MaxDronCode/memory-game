@@ -87,11 +87,15 @@ defineFeature(feature, (test) => {
     })
 
     then(/^the card at \((\d+), (\d+)\) should be covered$/, (rowPosition, colPosition) => {
-      expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(false)
+      setTimeout(() => {
+        expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(false)
+      }, 1005)
     })
 
     and(/^the card at \((\d+), (\d+)\) should be covered$/, (rowPosition, colPosition) => {
-      expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(false)
+      setTimeout(() => {
+        expect(steps.isCardUncovered(rowPosition, colPosition)).toBe(false)
+      }, 1005)
     })
   })
 

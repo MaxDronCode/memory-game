@@ -21,7 +21,9 @@ export default function Grid ({ numRows = 3, numCols = 4, mockData }) {
     if (uncoveredCards.length === 2) {
       const [firstCard, secondCard] = uncoveredCards
       if (firstCard.value !== secondCard.value) {
-        setWrongPairUncovered({ status: true, card1: firstCard, card2: secondCard })
+        setTimeout(() => {
+          setWrongPairUncovered({ status: true, card1: firstCard, card2: secondCard })
+        }, 1000)
       } else {
         setWrongPairUncovered({ status: false, card1: null, card2: null })
       }
