@@ -34,14 +34,21 @@ export default function Card ({ rowIndex, colIndex, value, onUncover, wrongPairU
     if (isCovered) {
       className += ' covered'
     } else if (!isCovered && isDisabled) {
-      className += ' uncovered disabled'
+      className += ' uncovered disabled flip-2-ver-left-2'
     }
     return className
   }
 
   return (
     <div className={setClassName()} onClick={handleClick} data-testid='card'>
-      <img src={value + '.svg'} alt='Logo' />
+      <div className='card-inner'>
+        <div className='card-front'>
+          {/* Parte frontal, puede ser una imagen de cubierta */}
+        </div>
+        <div className='card-back'>
+          <img src={`${value}.svg`} alt='Logo' />
+        </div>
+      </div>
     </div>
   )
 }
